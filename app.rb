@@ -12,6 +12,11 @@ get("/") do
 	erb(:index)
 end
 
+get("/clear") do
+	DB.exec("DELETE FROM lists;")
+	erb(:index)
+end
+
 get("/lists") do
 	@lists = List.all()
 	erb(:lists)
